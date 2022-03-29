@@ -60,6 +60,14 @@ func SendSideBWEInitialBitrate(rate int) Option {
 	}
 }
 
+// SendSideBWEMaxBitrate sets the maximum bitrate of new GCC interceptors
+func SendSideBWEMaxBitrate(rate int) Option {
+	return func(e *SendSideBWE) error {
+		e.maxBitrate = rate
+		return nil
+	}
+}
+
 // SendSideBWEPacer sets the pacing algorithm to use.
 func SendSideBWEPacer(p Pacer) Option {
 	return func(e *SendSideBWE) error {
